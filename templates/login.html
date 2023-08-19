@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="{%static 'css/login.css' %}">
+</head>
+<body>
+    
+<!-- <div class="container">
+    <div class="row">
+
+       <form action="login" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Enter your username"><br>
+    <input type="password" name="password" placeholder="Enter your password"><br>
+    <button type="submit">Sign In</button>
+    <a  href="{% url 'cred:register' %}">Registration</a>
+</form>
+    </div>
+</div> -->
+
+
+<section>
+<div class="form-box">
+    <div class="form-value">
+        <form action="login" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>Login</h2>
+            <div class="inputbox">
+                <ion-icon name="unlink-outline"></ion-icon>
+                <input type="text" name="username" required>
+                <label for="">Username</label>
+            </div>
+            <div class="inputbox">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input type="password" name="password" required>
+                <label for="">Password</label>
+            </div>
+            <button type="submit">Log in</button>
+            <div class="register">
+                <p>Don't have a account <a href="{% url 'cred:register' %}">Register</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+</section>
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        {% for msg in messages %}
+        showAlert("{{ msg }}");
+        {% endfor %}
+    });
+
+    function showAlert(message) {
+        alert(message);
+    }
+</script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

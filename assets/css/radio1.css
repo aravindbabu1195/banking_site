@@ -1,0 +1,9 @@
+.radio1 + .radio1{
+    margin-left: 60px;
+}
+
+.radio1{
+    font-size: 22px;
+    font-weight: 200;
+}
+

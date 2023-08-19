@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br><br><br><br><br>
+
+   
+<!--  <section class="contact site-blocks-cover " id="contact" style="background-image: url({%static 'images/hero_2.jpg '%});" data-aos="fade">
+          
+        <h2 class="heading">Application <span>form's!</span></h2>
+        <form method="post" enctype="multipart/form-data">
+           {% csrf_token %}
+         <div class="input-box">
+           
+            <input type="text" name="name" placeholder="Enter the description of movie " required>
+         </div>
+
+         <div class="input-box">
+           <input type="number" name="year" placeholder="Enter your movie year " required>
+            <input type="file" name="img" required >
+         </div>
+
+         <input type="submit" class="btn">
+       
+        </form> -->
+<!-- </section> -->
+ <section class="contact " id="contact" style="background-image: url({%static 'images/hero_1.jpg'%});" data-aos="fade">
+      
+
+               <form action="#" class="p-5 " enctype="multipart/form-data">
+                {% csrf_token %}
+              <h2 class="h4 text-black mb-5">Form</h2>
+
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black radio1" >First Name</label>
+                  <input type="text" name="name" class="form-control">
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black radio1" >DOB</label>
+                  <input type="date" name="date" class="form-control">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black radio1" >Age</label>
+                  <input type="number" name="age" class="form-control">
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black radio1" >Gender</label>
+                  <div class="col-md-12">
+                  
+                  <label class="text-black radio1" ><input type="radio" value="male" name="gender" class="form-control">
+                  Male</label>
+                  <label class="text-black radio1" ><input type="radio" value="female" name="gender" class="form-control">
+                  Female</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row form-group">
+
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black radio1" >Email</label>
+                  <input type="email" name="email" class="form-control">
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black radio1" >Mobile Number</label>
+                  <input type="number" name="phone" class="form-control">
+                </div>
+              </div>
+
+              <div class="row form-group">
+
+                <div class="col-md-12">
+                  <label class="text-black radio1" >Address</label>
+                  <input type="text" name="address" class="form-control">
+                </div>
+              </div>
+
+              <!-- <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="message">Message</label>
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+                </div>
+              </div> -->
+
+              <div class="row form-group">
+
+                <div class="col-md-6 ">
+                  
+                  <label class="text-black radio1">District's</label><br>
+                    <select name="country" class="form-control"> 
+                      <option>--select--</option>
+                      <option>Ernakulam</option>
+                      <option>Alappuzha</option>
+                      <option>Calicut</option>
+                      <option>Trivandrum</option>
+                      <option>Idukki</option>
+                  </select>
+                   
+                </div>
+
+                <div class="col-md-6 ">
+                  <label class="text-black radio1" >Branches's</label><br>
+                    <select name="city" class="form-control"> 
+                      <option>--select--</option>
+                      <option>Ernakulam</option>
+                      <option>Alappuzha</option>
+                      <option>Calicut</option>
+                      <option>Trivandrum</option>
+                      <option>Idukki</option>
+                  </select>
+                   
+                </div>
+              </div>
+
+            
+
+              <div class="row form-group">
+
+                <div class="col-md-6 ">
+                  <label class="text-black radio1" >Account Type</label><br>
+                    <select name="account" class="form-control"> 
+                      <option >--select--</option>
+                      <option>Ernakulam</option>
+                      <option>Alappuzha</option>
+                      <option>Calicut</option>
+                      <option>Trivandrum</option>
+                      <option>Idukki</option>
+                  </select>
+                   
+                </div>
+
+                <div class="col-md-6 ">
+                  <label class="text-black radio1" for="address">Materials</label><br>
+                  <input type="checkbox" name="credit" >
+                  <label class="text-black radio1">Credit Card</label>
+                  <input type="checkbox" name="debit">
+                  <label class="text-black radio1">Debit card</label>
+                  <input type="checkbox" name="cheque" >
+                  <label class="text-black radio1">Cheque Book</label><br>
+                   
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Send Message" class="btn btn-primary btn-md text-white">
+                </div>
+              </div>
+            </form>
+        
+    </section>
+
+    <!-- <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+    <div class="input-box">
+         <input type="text" name="name" placeholder="Task name">
+       <input type="text" name="priority" placeholder="priority">
+         <input type="date" name="date">
+         <input type="file" name="img">
+    </div>
+    <input type="submit" class="btn btn-success">
+  </form> -->
+
+  <!-- <div class=" col-md-6">
+    <h4>Task to be completed</h4>
+      {% for i in task %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{i.name}}</h5>
+            <p><b> {{i.priority}}</b></p>
+            <p><b> {{i.date}}</b></p>
+          
+        </div>
+    </div>
+ <br>
+  {% endfor %}
+</div> -->
+
+
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+    <link rel="stylesheet" href="{%static 'css/success.css' %}">
+
+</head>
+<body>
+    <div>
+
+    <h1></h1>
+    
+    
+
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form  method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label for="">{{ message }}</label>
+                    
+                    
+                    <div class="register">
+                        <p><a href="{% url 'form1:home' %}">Return to Home</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        </section>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

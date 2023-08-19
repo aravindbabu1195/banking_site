@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <link rel="stylesheet" href="{%static 'css/login.css' %}">
+</head>
+<body>
+<!-- <h2>Registrations</h2> -->
+<!-- <form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" required="" placeholder="Enter your Username"><br>
+    <input type="password" name="password" required="" placeholder="Enter your Password"><br>
+    <input type="password" name="password1" required="" placeholder="Enter your Confirm password"><br>
+    <input type="submit">
+</form> -->
+
+<section>
+    <div class="form-box">
+        <div class="form-value">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h2>Registration</h2>
+                <div class="inputbox">
+                    <ion-icon name="unlink-outline"></ion-icon>
+                    <input type="text" name="username" required>
+                    <label for="">Username</label>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="key-outline"></ion-icon>
+                    <input type="password" name="password" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="key-outline"></ion-icon>
+                    <input type="password" name="password1" required>
+                    <label for="">Conform Password</label>
+                </div>
+                <button type="submit">Submit</button>
+               
+            </form>
+        </div>
+    </div>
+    
+    </section>
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<!-- {% for msg in messages %}
+{{msg}}
+{% endfor %} -->
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        {% for msg in messages %}
+        showAlert("{{ msg }}");
+        {% endfor %}
+    });
+
+    function showAlert(message) {
+        alert(message);
+    }
+</script>
+</body>
+</html>

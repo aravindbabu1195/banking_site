@@ -1,0 +1,140 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+   
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-edu-meeting.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css' %}">
+
+  <body>
+
+      <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="" class="logo">
+                        Banking
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="{% url 'bank:home' %}" class="active nav-link">Home</a></li>
+                        <li></li>
+                        <li></li>
+                        <li class="has-sub">
+                            <a href="javascript:void(0)">Pages</a>
+                            <ul class="sub-menu">
+                              <li><a href="https://en.wikipedia.org/wiki/Idukki"  >Idukki</a></li>
+                              <li><a href="https://en.wikipedia.org/wiki/Ernakulam" class="nav-link">Ernakulam</a></li>
+                              <li><a href="https://en.wikipedia.org/wiki/Alappuzha" class="nav-link">Alappuzha</a></li>
+                              <li><a href="https://en.wikipedia.org/wiki/Trivandrum" class="nav-link">Trivandrum</a></li>
+                              <li><a href="https://en.wikipedia.org/wiki/Calicut" class="nav-link">Calicut</a></li>
+                            </ul>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li> Hello {{user.username}}</li>
+                        <li><a href="{% url 'cred:logout' %}">Logout</a></li>
+                        <li><a href="{% url 'form1:registration' %}" class="nav-link">Form</a></li>
+                        {% else %}
+                        <li><a href="{% url 'cred:register' %}" class="nav-link">Sign Up</a></li>
+                        <li><a href="{% url 'cred:login' %}" class="nav-link">Sign In</a></li>
+                        {% endif %} 
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+   
+   
+
+
+    {% block content %}
+    {% endblock %}
+    {% include 'footer.html' %}
+   
+   <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'assets/js/lightbox.js' %}"></script>
+  <script src="{% static 'assets/js/tabs.js' %}"></script>
+  <script src="{% static 'assets/js/video.js' %}"></script>
+  <script src="{% static 'assets/js/slick-slider.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+  <script>
+      //according to loftblog tut
+      $('.nav li:first').addClass('active');
+
+      var showSection = function showSection(section, isAnimate) {
+        var
+        direction = section.replace(/#/, ''),
+        reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+        reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $('body, html').animate({
+            scrollTop: reqSectionPos },
+          800);
+        } else {
+          $('body, html').scrollTop(reqSectionPos);
+        }
+
+      };
+
+      var checkSection = function checkSection() {
+        $('.section').each(function () {
+          var
+          $this = $(this),
+          topEdge = $this.offset().top - 80,
+          bottomEdge = topEdge + $this.height(),
+          wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var
+            currentId = $this.data('section'),
+            reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+            reqLink.closest('li').addClass('active').
+            siblings().removeClass('active');
+          }
+        });
+      };
+
+      $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+        e.preventDefault();
+        showSection($(this).attr('href'), true);
+      });
+
+      $(window).scroll(function () {
+        checkSection();
+      });
+  </script>
+
+
+  </body>
+</html>
+

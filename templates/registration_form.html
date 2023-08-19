@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style2.css' %}">
+
+{% block content %}
+<br><br><br><br>
+  <title>Registration Form</title>
+    <section class="text-black text-left" style="background-image: url({%static 'css/images/hero_1.jpg' %})" data-aos="fade">
+        
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <input type="submit" class="btn" value="Submit">
+    </form>
+          
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#id_district').change(function() {
+                var districtId = $(this).val();
+                if (districtId) {
+                    $('#id_branch').prop('disabled', false);
+                    $.ajax({
+                        url: 'get_branches/',
+                        data: {
+                            'district_id': districtId
+                        },
+                        dataType: 'json',
+                        success: function(data) {
+                            $('#id_branch').empty().append('<option value="">---------</option>');
+                            $.each(data, function(index, branch) {
+                                $('#id_branch').append('<option value="' + branch.id + '">' + branch.name + '</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('#id_branch').prop('disabled', true).val('');
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+{% endblock %}
